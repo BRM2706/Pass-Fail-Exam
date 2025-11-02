@@ -1,0 +1,28 @@
+import javax.swing.JOptionPane;
+
+public class PassFailExamDemo {
+    public static void main(String[] args) {
+        String input;
+        int questions;
+        int missed;
+        double minPassing;
+
+        input = JOptionPane.showInputDialog("How many questions are on the exam?");
+        questions = Integer.parseInt(input);
+
+        input = JOptionPane.showInputDialog("How many questions did the student miss?");
+        missed = Integer.parseInt(input);
+
+        input = JOptionPane.showInputDialog("What is the minimum passing score?");
+        minPassing = Double.parseDouble(input);
+
+        PassFailExam exam = new PassFailExam(questions, missed, minPassing);
+
+        String message = "Each question counts: " + exam.getPointsEach() + " points\n"
+                + "Exam score: " + exam.getScore() + "\n"
+                + "Exam grade: " + exam.getGrade();
+
+        JOptionPane.showMessageDialog(null, message);
+        System.exit(0);
+    }
+}
